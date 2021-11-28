@@ -75,4 +75,8 @@
 </div>
 <div class="cart_block">
   <div class="icon_cart"><img src="<?php echo get_template_directory_uri(); ?>/img/cart-b.svg" alt=""></div>
+  <div class="content_cart">
+    Товаров: <?php echo WC()->cart->get_cart_contents_count(); ?>, на сумму: <?php echo WC()->cart->get_cart_subtotal(); ?><br/>
+    <a href="/cart">Оформить заказ</a>
+  </div>
 </div>
