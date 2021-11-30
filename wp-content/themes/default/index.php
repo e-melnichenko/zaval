@@ -114,20 +114,22 @@ Template Name: Главная страница
     </div>
     <div class="row">
       <?php query_posts('cat=1&showposts=4'); ?>
-      <?php if (have_posts()) : while (have_posts()) : the_post();?>
-          <div class="news_box">
-            <div class="news">
-              <div class="img"><a href="<?php the_permalink(); ?>"><img src="<?php echo thumb_image_news(); ?>" alt="<?php the_title(); ?>"></a></div>
-              <div class="content">
-                <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                <span><?php do_excerpt(get_the_excerpt(), 10); ?></span>
-                <div class="more"><a href="<?php the_permalink(); ?>">Подробнее</a></div>
-                <div class="time"><i class="fa fa-clock-o"></i> <?php the_time('d M Y'); ?></div>
+      <div class="search-result__list">
+        <?php if (have_posts()) : while (have_posts()) : the_post();?>
+            <div class="news_box">
+              <div class="news">
+                <div class="img"><a href="<?php the_permalink(); ?>"><img src="<?php echo thumb_image_news(); ?>" alt="<?php the_title(); ?>"></a></div>
+                <div class="content">
+                  <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                  <span><?php do_excerpt(get_the_excerpt(), 10); ?></span>
+                  <div class="more"><a href="<?php the_permalink(); ?>">Подробнее</a></div>
+                  <div class="time"><i class="fa fa-clock-o"></i> <?php the_time('d M Y'); ?></div>
+                </div>
               </div>
             </div>
-          </div>
-      <?php endwhile; else: ?>
-      <?php endif; ?>
+        <?php endwhile; else: ?>
+        <?php endif; ?>
+      </div>
       <?php wp_reset_query(); ?>
     </div>
   </div>

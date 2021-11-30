@@ -289,7 +289,9 @@ left: 110%;
 margin-left: 80px;
 }
 }
-
+.woocommerce-store-notice, p.demo_store {
+	padding: 1em!important;
+}
 .header {
 /* float: left; */
 /* width: 100%; */
@@ -3685,6 +3687,14 @@ display: none !important;
 display: block;
 }
 
+.footer_content .footer_dop_menu {
+	display: none;
+}
+
+.footer_content {
+	justify-content: center;
+}
+
 
 /* .contact_head_b {
 width: 130px;
@@ -4329,6 +4339,9 @@ padding: 15px;
 }
 
 @media screen and (max-width: 570px) {
+	.footer {
+		padding-bottom: 80px;
+	}
 .cart_block {
 display: block;
 bottom: 0;
