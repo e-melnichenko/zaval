@@ -95,30 +95,30 @@ modal.init();
 /* ---------------------------------------------------------------------------
 * Navigation
 * --------------------------------------------------------------------------- */
-$(document).ready(function() { 
-$('.categories-menu-ul li').hover(function () { 
-clearTimeout($.data(this,'timer')); 
-$('ul',this).stop(true,true).fadeIn(200); 
-}, function () { 
-$.data(this,'timer', setTimeout($.proxy(function() { 
-$('ul',this).stop(true,true).fadeOut(200); 
-}, this), 100)); 
-}); 
-});
+// $(document).ready(function() { 
+// $('.categories-menu-ul li').hover(function () { 
+// clearTimeout($.data(this,'timer')); 
+// $('ul',this).stop(true,true).fadeIn(200); 
+// }, function () { 
+// $.data(this,'timer', setTimeout($.proxy(function() { 
+// $('ul',this).stop(true,true).fadeOut(200); 
+// }, this), 100)); 
+// }); 
+// });
 /* ---------------------------------------------------------------------------
 * Slider
 * --------------------------------------------------------------------------- */
-$('.slider').slick({
-draggable: true,
-arrows: true,
-dots: true,
-fade: true,
-speed: 900,
-infinite: true,
-cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
-autoplay: false,
-touchThreshold: 100
-})
+// $('.slider').slick({
+// draggable: true,
+// arrows: true,
+// dots: true,
+// fade: true,
+// speed: 900,
+// infinite: true,
+// cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
+// autoplay: false,
+// touchThreshold: 100
+// })
 /* ---------------------------------------------------------------------------
 * Carousel
 * --------------------------------------------------------------------------- */
@@ -138,34 +138,87 @@ pagination: true
 * Menu
 * --------------------------------------------------------------------------- */
 /* A simple and scalable hamburger menu using css transitions. */
-var isActive = false;
 
-$('.js-menu').on('click', function() {
-  if (isActive) {
-    $(this).removeClass('active');
-    $('body').removeClass('menu-open');
-  } else {
-    $(this).addClass('active');
-    $('body').addClass('menu-open');
+
+// custom js
+$(document).ready(function() {
+  initCatalogVisibility();
+  initSlider();
+  initMenuToggle();
+  initCssVars();
+
+  function initCatalogVisibility() {
+    $('.js-catalog-toggle').on('click', function(e) {
+      e.preventDefault();
+      $('body').toggleClass('_catalog-opened');
+    })
   }
 
-  isActive = !isActive;
+  function initSlider() {
+    $('.slider').slick({
+      draggable: true,
+      arrows: true,
+      prevArrow: '<button class="slick-prev" type="button">←</button>',
+      nextArrow: '<button class="slick-next" type="button">→</button>',
+      dots: true,
+      fade: true,
+      speed: 900,
+      infinite: true,
+      cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
+      autoplay: false,
+      touchThreshold: 100,
+      responsive: [
+        {
+          breakpoint: 1000 + 1,
+          settings: {
+            adaptiveHeight: true,
+          }
+        }
+      ]
+      // adaptiveHeight: true,
+    })
+  }
 
-  $('.sublink').click(function () {
-        $(this).toggleClass('active');
-        $('.mobile-menu__sublist').slideToggle('600');
-        return false;
+  function initMenuToggle() {
+    $('.js-menu').on('click', function() {
+      $(this).toggleClass('active');
+      $('body').toggleClass('_menu-open');
     });
-  $('.sublink_a').click(function () {
-        $(this).toggleClass('active');
-        $('.mobile-menu__sublist_a').slideToggle('600');
-        return false;
-    });
-  $('.sublink_b').click(function () {
-        $(this).toggleClass('active');
-        $('.mobile-menu__sublist_b').slideToggle('600');
-        return false;
-    });
+  }
+
+  function initCssVars() {
+    const $header = $('.js-header');
+    setTimeout(updateVars, 0);
+    $(window).on('resize', debounce(updateVars, 100))
+
+    function updateVars() {
+      document.documentElement.style.setProperty('--header-height', $header.outerHeight() + 'px')
+      document.documentElement.style.setProperty('--vh', $(window).outerHeight() / 100 + 'px');
+    }
+  }
+
+  // utils
+  function debounce(func, wait, immediate) {
+    let timeout;
+  
+    return function executedFunction() {
+        const context = this;
+        const args = arguments;
+  
+        const later = function() {
+            timeout = null;
+            if(!immediate) func.apply(context, args);
+        }
+  
+        const callNow = immediate && !setTimeout;
+  
+        clearTimeout(timeout);
+  
+        timeout = setTimeout(later, wait);
+  
+        if(callNow) func.apply(context, args);
+    }
+  }
 });
 
 

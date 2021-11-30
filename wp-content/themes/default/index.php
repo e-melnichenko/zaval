@@ -14,7 +14,7 @@ Template Name: Главная страница
 				$img = get_sub_field('fd5');
 			?>
 	    <div class="slide_item">
-	      <img src="<?php echo $img; ?>" alt="">
+	      <img src="<?php echo $img; ?>" class="slide_item__img" alt="">
 	      <div class="slider_content">
 	        <div class="container">
 	          <div class="slider_info">
@@ -35,7 +35,6 @@ Template Name: Главная страница
   </div>
 </div>
 
-
 <div class="services_block background_white">
   <div class="container">
     <div class="title_block not_bottom">
@@ -46,10 +45,6 @@ Template Name: Главная страница
     </div>
   </div>
 </div>
-
-
-
-
 
 <div class="services_block texture">
   <div class="container">
@@ -62,7 +57,6 @@ Template Name: Главная страница
     </div>
   </div>
 </div>
-
 
 <div class="company_block">
   <div class="container">
@@ -83,7 +77,6 @@ Template Name: Главная страница
   </div>
 </div>
 
-
 <div class="services_block texture">
   <div class="container">
     <div class="title_block not_bottom">
@@ -94,6 +87,7 @@ Template Name: Главная страница
     </div>
   </div>
 </div>
+
 <div class="partner_block">
   <div class="container">
     <div class="partner_title">
@@ -111,6 +105,7 @@ Template Name: Главная страница
     </div>
   </div>
 </div>
+
 <div class="news_block texture">
   <div class="container">
     <div class="title_block">
@@ -137,6 +132,7 @@ Template Name: Главная страница
     </div>
   </div>
 </div>
+
 <div class="seo_block">
   <div class="container">
     <div class="seo_text">
@@ -144,4 +140,5 @@ Template Name: Главная страница
     </div>
   </div>
 </div>
+
 <?php get_footer('home'); ?>
