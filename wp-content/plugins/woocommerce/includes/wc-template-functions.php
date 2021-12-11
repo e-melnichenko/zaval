@@ -896,10 +896,12 @@ if ( ! function_exists( 'woocommerce_content' ) ) {
 				<?php woocommerce_product_loop_start(); ?>
 
 				<?php if ( wc_get_loop_prop( 'total' ) ) : ?>
+					<div class="products-list">
 					<?php while ( have_posts() ) : ?>
 						<?php the_post(); ?>
-						<?php wc_get_template_part( 'content', 'product' ); ?>
-					<?php endwhile; ?>
+							<?php wc_get_template_part( 'content', 'product' ); ?>
+							<?php endwhile; ?>
+					</div>
 				<?php endif; ?>
 
 				<?php woocommerce_product_loop_end(); ?>
@@ -2288,7 +2290,7 @@ if ( ! function_exists( 'woocommerce_output_product_categories' ) ) {
 		}
 
 		echo $args['before']; // WPCS: XSS ok.
-
+		
 		foreach ( $product_categories as $category ) {
 			wc_get_template( 'content-product_cat.php', array(
 				'category' => $category,

@@ -9,33 +9,39 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-<header class="header">
+<header class="header js-header">
   <div class="container">
     <div class="header_content">
       <div class="logo"><a href="/"><img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt=""></a></div>
-      <div class="contact_head_b">
-      	<div class="top_menu">
-      		<ul>
-            <?php wp_nav_menu( array( 'container' => '', 'items_wrap' => '%3$s', 'theme_location' => 'header-nav3') ); ?>
-      		</ul>
-    	</div>
-        <div class="search_block">
-          <form class="search_form" method="get">
-            <input type="text" class="search_text" placeholder="Введите ваш запрос" value="<?php echo get_search_query() ?>" name="s" id="s">
-            <input type="submit" class="search-button" value="">
-          </form>
+      <div class="header__mobile-menu">
+        <div class="top_menu">
+          <ul>
+            <!-- <li><a href="#" class="js-catalog-toggle">Каталог</a></li> -->
+              <?php wp_nav_menu( array( 'container' => '', 'items_wrap' => '%3$s', 'theme_location' => 'header-nav3') ); ?>
+          </ul>
+        </div>
+        <!-- <div class="contact_head_b">
+          <div class="search_block">
+            <form class="search_form" method="get">
+              <input type="text" class="search_text" placeholder="Введите ваш запрос" value="<?php echo get_search_query() ?>" name="s" id="s">
+              <input type="submit" class="search-button" value="">
+            </form>
+          </div>
+        </div> -->
+        <div class="contact_head">
+          <a href="tel:+78452392028" class="phone">+7 (8452) 39-20-28</a>
+          <a href="tel:+79042417484" class="phone">+7 (904) 241-74-84</a>
+          <a href="mailto:392028@inbox.ru" class="mail">392028@inbox.ru</a>
         </div>
       </div>
-      <div class="contact_head">
-        <div class="phone"> +7 (8452) 39-20-28</div>
-        <div class="phone"> +7 (904) 241-74-84</div>
-        <a href="mailto:392028@inbox.ru" class="mail">392028@inbox.ru</a>
-      </div>
-      <div class="contact_head_a">
+      <button class="js-menu menu_x" type="button">
+        <span class="bar"></span>
+      </button>
+      <!-- <div class="contact_head_a">
         <div class="adress">410038, г.Саратов, 6-ой Соколовогорский пр-д, стр. 1 </div>
         <div class="road modal-link">ПОСМОТРЕТЬ СХЕМУ ПРОЕЗДА. КООРДИНАТЫ GPS:  51.559020, 46.068280</div>
         <div class="time"><i class="fa fa-clock-o"></i> Пн-Сб 08.00 - 18.00 Вс 8.00-15.00</div>
-      </div>
+      </div> -->
     </div>
   </div>
 </header>
@@ -46,15 +52,23 @@
   </div>
 </div>
 <div class="nav_block">
-  <div class="categories">
-    <nav class="categories-menu">
-      <ul class="categories-menu-ul">
-        <li><a href="/"><span class="icon-menu no_right"><img src="<?php echo get_template_directory_uri(); ?>/img/i1.png" alt=""></span></a></li>
-        <?php wp_nav_menu( array( 'container' => '', 'items_wrap' => '%3$s', 'theme_location' => 'header-nav') ); ?>
-      </ul>
-    </nav>
+  <div class="header-catalog">
+    <div class="container">
+      <div class="header-catalog__inner">
+        <h2 class="header-catalog__title">Каталог</h2>
+        <ul class="header-catalog__list">
+          <?php wp_nav_menu( array( 'container' => '', 'items_wrap' => '%3$s', 'theme_location' => 'header-nav') ); ?>
+        </ul>
+        <button class="header-catalog__close-btn js-catalog-toggle"><img src="<?php echo get_template_directory_uri(); ?>/img/close-grey.svg" alt=""></button>
+      </div>
+    </div>
   </div>
+  <!-- <div class="categories">
+    <nav class="categories-menu">
+    </nav>
+  </div> -->
 </div>
+<?/*
 <div class="menu_table">
   <div class="container">
     <div class="search_block">
@@ -63,7 +77,7 @@
               <input type="submit" class="search-button" value="">
             </form>
           </div>
-     <button class="js-menu menu_x" type="button">
+     <!-- <button class="js-menu menu_x" type="button"> -->
      <span class="bar"></span>
      </button>
      <nav class="menu_cont">
@@ -73,6 +87,9 @@
      </nav>
   </div>
 </div>
+*/?>
+
+<?/*
 <div class="cart_block">
   <div class="icon_cart"><img src="<?php echo get_template_directory_uri(); ?>/img/cart-b.svg" alt=""></div>
   <div class="content_cart">
@@ -80,3 +97,4 @@
     <a href="/cart">Оформить заказ</a>
   </div>
 </div>
+*/?>

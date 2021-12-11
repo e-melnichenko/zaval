@@ -14,11 +14,11 @@ Template Name: Главная страница
 				$img = get_sub_field('fd5');
 			?>
 	    <div class="slide_item">
-	      <img src="<?php echo $img; ?>" alt="">
+	      <img src="<?php echo $img; ?>" class="slide_item__img" alt="">
 	      <div class="slider_content">
 	        <div class="container">
 	          <div class="slider_info">
-	            <h3><?php echo $name; ?></h3>
+	            <? if($name) {?><h3><?php echo $name; ?></h3><?}?>
 	            <span><?php echo $text; ?></span>
 							<?php
 								if ($button == '1'){
@@ -34,8 +34,7 @@ Template Name: Главная страница
 		<?php endif; ?>
   </div>
 </div>
-
-
+<?/*
 <div class="services_block background_white">
   <div class="container">
     <div class="title_block not_bottom">
@@ -46,10 +45,6 @@ Template Name: Главная страница
     </div>
   </div>
 </div>
-
-
-
-
 
 <div class="services_block texture">
   <div class="container">
@@ -62,7 +57,7 @@ Template Name: Главная страница
     </div>
   </div>
 </div>
-
+*/?>
 
 <div class="company_block">
   <div class="container">
@@ -83,7 +78,7 @@ Template Name: Главная страница
   </div>
 </div>
 
-
+<?/*
 <div class="services_block texture">
   <div class="container">
     <div class="title_block not_bottom">
@@ -94,6 +89,7 @@ Template Name: Главная страница
     </div>
   </div>
 </div>
+*/?>
 <div class="partner_block">
   <div class="container">
     <div class="partner_title">
@@ -111,6 +107,7 @@ Template Name: Главная страница
     </div>
   </div>
 </div>
+
 <div class="news_block texture">
   <div class="container">
     <div class="title_block">
@@ -119,24 +116,27 @@ Template Name: Главная страница
     </div>
     <div class="row">
       <?php query_posts('cat=1&showposts=4'); ?>
-      <?php if (have_posts()) : while (have_posts()) : the_post();?>
-          <div class="news_box">
-            <div class="news">
-              <div class="img"><a href="<?php the_permalink(); ?>"><img src="<?php echo thumb_image_news(); ?>" alt="<?php the_title(); ?>"></a></div>
-              <div class="content">
-                <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                <span><?php do_excerpt(get_the_excerpt(), 10); ?></span>
-                <div class="more"><a href="<?php the_permalink(); ?>">Подробнее</a></div>
-                <div class="time"><i class="fa fa-clock-o"></i> <?php the_time('d M Y'); ?></div>
+      <div class="search-result__list">
+        <?php if (have_posts()) : while (have_posts()) : the_post();?>
+            <div class="news_box">
+              <div class="news">
+                <div class="img"><a href="<?php the_permalink(); ?>"><img src="<?php echo thumb_image_news(); ?>" alt="<?php the_title(); ?>"></a></div>
+                <div class="content">
+                  <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                  <span><?php do_excerpt(get_the_excerpt(), 10); ?></span>
+                  <div class="more"><a href="<?php the_permalink(); ?>">Подробнее</a></div>
+                  <div class="time"><i class="fa fa-clock-o"></i> <?php the_time('d M Y'); ?></div>
+                </div>
               </div>
             </div>
-          </div>
-      <?php endwhile; else: ?>
-      <?php endif; ?>
+        <?php endwhile; else: ?>
+        <?php endif; ?>
+      </div>
       <?php wp_reset_query(); ?>
     </div>
   </div>
 </div>
+
 <div class="seo_block">
   <div class="container">
     <div class="seo_text">
@@ -144,4 +144,5 @@ Template Name: Главная страница
     </div>
   </div>
 </div>
+
 <?php get_footer('home'); ?>

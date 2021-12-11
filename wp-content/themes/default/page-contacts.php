@@ -6,6 +6,17 @@ Template Name: Контакты
 <?php get_header(); ?>
 <div class="speedbar_box">
   <div class="container">
+    <?
+      /**
+       * Rename "home" in breadcrumb
+       */
+      add_filter( 'woocommerce_breadcrumb_defaults', 'wcc_change_breadcrumb_home_text' );
+      function wcc_change_breadcrumb_home_text( $defaults ) {
+          // Change the breadcrumb home text from 'Home' to 'Apartment'
+        $defaults['home'] = 'Apartment';
+        return $defaults;
+      }
+    ?>
     <?php woocommerce_breadcrumb(); ?>
   </div>
 </div>
@@ -53,4 +64,4 @@ Template Name: Контакты
     </div>
   </div>
 </div>
-<?php get_footer('contacts'); ?>
+<?php get_footer('home'); ?>
