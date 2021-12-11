@@ -18,7 +18,7 @@ Template Name: Главная страница
 	      <div class="slider_content">
 	        <div class="container">
 	          <div class="slider_info">
-	            <h3><?php echo $name; ?></h3>
+	            <? if($name) {?><h3><?php echo $name; ?></h3><?}?>
 	            <span><?php echo $text; ?></span>
 							<?php
 								if ($button == '1'){
@@ -34,7 +34,7 @@ Template Name: Главная страница
 		<?php endif; ?>
   </div>
 </div>
-
+<?/*
 <div class="services_block background_white">
   <div class="container">
     <div class="title_block not_bottom">
@@ -57,6 +57,7 @@ Template Name: Главная страница
     </div>
   </div>
 </div>
+*/?>
 
 <div class="company_block">
   <div class="container">
@@ -77,6 +78,7 @@ Template Name: Главная страница
   </div>
 </div>
 
+<?/*
 <div class="services_block texture">
   <div class="container">
     <div class="title_block not_bottom">
@@ -87,7 +89,7 @@ Template Name: Главная страница
     </div>
   </div>
 </div>
-
+*/?>
 <div class="partner_block">
   <div class="container">
     <div class="partner_title">

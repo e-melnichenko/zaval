@@ -142,17 +142,18 @@ pagination: true
 
 // custom js
 $(document).ready(function() {
-  initCatalogVisibility();
   initSlider();
   initMenuToggle();
   initCssVars();
+  // выпилено
+  // initCatalogVisibility();
 
-  function initCatalogVisibility() {
-    $('.js-catalog-toggle').on('click', function(e) {
-      e.preventDefault();
-      $('body').toggleClass('_catalog-opened');
-    })
-  }
+  // function initCatalogVisibility() {
+  //   $('.js-catalog-toggle').on('click', function(e) {
+  //     e.preventDefault();
+  //     $('body').toggleClass('_catalog-opened');
+  //   })
+  // }
 
   function initSlider() {
     $('.slider').slick({

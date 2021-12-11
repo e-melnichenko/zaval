@@ -7,6 +7,7 @@
 <div class="content_inner_block">
   <div class="container">
     <div class="inner_block">
+      <?/*
       <div class="rightbar desktop_rightbar">
         <h3>Рекомендуемые новости</h3>
         <?php query_posts('cat=1&showposts=4'); ?>
@@ -27,6 +28,7 @@
         <?php wp_reset_query(); ?>
         <div class="rightbar desktop_rightbar"><?php get_sidebar('rightcolumn'); ?></div>
       </div>
+      */?>
       <div class="full_content">
         <h1 class="full_title">Ошибка 404</h1>
         <div class="fullstory">
@@ -35,6 +37,7 @@
           </div>
         </div>
       </div>
+      <?/*
       <div class="rightbar table_rightbar">
         <h3>Рекомендуемые новости</h3>
         <div class="row">
@@ -56,6 +59,7 @@
         <?php wp_reset_query(); ?>
         </div>
       </div>
+      */?>
     </div>
   </div>
 </div>

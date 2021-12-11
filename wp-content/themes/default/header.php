@@ -16,18 +16,18 @@
       <div class="header__mobile-menu">
         <div class="top_menu">
           <ul>
-            <li><a href="#" class="js-catalog-toggle">Каталог</a></li>
-            <?php wp_nav_menu( array( 'container' => '', 'items_wrap' => '%3$s', 'theme_location' => 'header-nav3') ); ?>
+            <!-- <li><a href="#" class="js-catalog-toggle">Каталог</a></li> -->
+              <?php wp_nav_menu( array( 'container' => '', 'items_wrap' => '%3$s', 'theme_location' => 'header-nav3') ); ?>
           </ul>
         </div>
-        <div class="contact_head_b">
+        <!-- <div class="contact_head_b">
           <div class="search_block">
             <form class="search_form" method="get">
               <input type="text" class="search_text" placeholder="Введите ваш запрос" value="<?php echo get_search_query() ?>" name="s" id="s">
               <input type="submit" class="search-button" value="">
             </form>
           </div>
-        </div>
+        </div> -->
         <div class="contact_head">
           <a href="tel:+78452392028" class="phone">+7 (8452) 39-20-28</a>
           <a href="tel:+79042417484" class="phone">+7 (904) 241-74-84</a>
@@ -89,7 +89,7 @@
 </div>
 */?>
 
-
+<?/*
 <div class="cart_block">
   <div class="icon_cart"><img src="<?php echo get_template_directory_uri(); ?>/img/cart-b.svg" alt=""></div>
   <div class="content_cart">
@@ -97,3 +97,4 @@
     <a href="/cart">Оформить заказ</a>
   </div>
 </div>
+*/?>
