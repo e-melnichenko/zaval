@@ -47,8 +47,9 @@ Template Name: Контакты
           <?php echo do_shortcode( '[contact-form-7 id="291"]' ); ?>
         </div>
       </div>
-      <div class="contact_box_b">
-        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A3d115b0978869b48ae94ea76fee0dc5f7fc4e77ab7c258dd0fc53e0e5fcba726&amp;width=100%25&amp;height=100%&amp;lang=ru_RU&amp;scroll=true"></script>
+      <div class="contact_box_b" id="contacts-map">
+        <!-- <script src="https://api-maps.yandex.ru/2.1/?49e72a2c-9371-42b1-b02a-9e115a863c11&lang=ru_RU&" type="text/javascript"></script> -->
+        <!-- <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A3d115b0978869b48ae94ea76fee0dc5f7fc4e77ab7c258dd0fc53e0e5fcba726&amp;width=100%25&amp;height=100%&amp;lang=ru_RU&amp;scroll=true"></script> -->
       </div>
     </div>
   </div>
