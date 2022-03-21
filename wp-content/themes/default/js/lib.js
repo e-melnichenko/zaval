@@ -145,6 +145,7 @@ $(document).ready(function() {
   initSlider();
   initMenuToggle();
   initCssVars();
+  initYMap();
   // выпилено
   // initCatalogVisibility();
 
@@ -196,6 +197,37 @@ $(document).ready(function() {
       document.documentElement.style.setProperty('--header-height', $header.outerHeight() + 'px')
       document.documentElement.style.setProperty('--vh', $(window).outerHeight() / 100 + 'px');
     }
+  }
+
+  function initYMap() {
+    if(typeof ymaps === 'undefined') {
+      console.warn('ymaps is not defined');
+      return 
+    } 
+
+    const params = {
+      center: [51.559058, 46.06968],
+      zoom: 15,
+      controls: ['zoomControl'],
+    }
+
+    ids = ['main-map', 'contacts-map'];
+
+    ymaps.ready(() => {
+      ids.forEach(id => {
+        if(!$(`#${id}`).length) return;
+
+        const zavalMap = new ymaps.Map(id, params);
+        const placemark = new ymaps.Placemark([51.558991, 46.068500], { 
+            iconCaption: 'Пиломатериалы ЗАВАЛ',
+            balloonContent: 'г Саратов, 6-ой Соколовогорский пр-д, стр. 1'
+          }, {
+            preset: 'islands#dotIcon',
+            iconColor: '#75331d'
+        })
+        zavalMap.geoObjects.add(placemark);
+      })
+    });
   }
 
   // utils
